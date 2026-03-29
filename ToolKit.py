@@ -1,27 +1,28 @@
 import os
 
 banner = r"""
-    ______      __    _      __     _____           __            
+    ______      __    _      __   _____             __            
    / ____/___ _/ /_  (_)__  / /  / ___/____ _____  / /_____  _____
   / /_  / __ `/ __ \/ / _ \/ /   \__ \/ __ `/ __ \/ __/ __ \/ ___/
  / __/ / /_/ / /_/ / /  __/ /   ___/ / /_/ / / / / /_/ /_/ (__  ) 
 /_/    \__,_/_.___/_/\___/_/   /____/\__,_/_/ /_/\__/\____/____/
-                                                ToolKit v0.1
+                                                ToolKit v1.0
 """
 print(banner)
 print(""" 
 Ferramentas Disponíveis:
+[0] Sair
 [1] Atualizar sistema
-[2] instalar nmap
-[3] instalar wireshark
-[4] instalar hydra
-[5] instalar john the ripper
-[6] instalar sqlmap
-[7] instalar metasploit
-[8] instalar aircrack-ng
-[9] instalar burpsuite
-[10] instalar dirbuster
-[] Atualizar Sair
+[2] Instalar nmap
+[3] Instalar wireshark
+[4] Instalar hydra
+[5] Instalar john the ripper
+[6] Instalar sqlmap
+[7] Instalar metasploit
+[8] Instalar aircrack-ng
+[9] Instalar burpsuite
+[10] Instalar dirbuster
+[11] Instalar todos
 """)
 
 tool = int(input('Escolha a ferramenta: '))
@@ -75,6 +76,16 @@ elif tool == 10:
     os.system('sudo apt install dirb -y')
     print('dirb instalado com sucesso!')
 
-elif tool == 11:
+elif tool == 0:
     print('Saindo...')
+    exit()
+
+elif tool == 11:
+    print('Instalando todas as ferramentas...')
+    os.system('sudo apt update && sudo apt upgrade -y')
+    os.system('sudo apt install nmap wireshark hydra john sqlmap metasploit-framework aircrack-ng burpsuite dirb -y')
+    print('Todas as ferramentas instaladas com sucesso!')
+
+else:
+    print('Opção inválida!')
     exit()
